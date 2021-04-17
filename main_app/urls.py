@@ -9,4 +9,5 @@ urlpatterns = [
     path('boybands/create/', views.BoybandCreate.as_view(), name='boybands_create'),
     path('boybands/<int:pk>/update/', views.BoybandUpdate.as_view(), name='boybands_update'),
     path('boybands/<int:pk>/delete/', views.BoybandDelete.as_view(), name='boybands_delete'),
+    path('boybands/<int:boyband_id>/add_song/', views.add_song, name="add_song"),
 ]

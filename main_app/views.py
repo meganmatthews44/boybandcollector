@@ -1,7 +1,8 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from django.http import HttpResponse
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
 from .models import Boyband
+from .forms import SongForm
 # Create your views here.
 
 def home(request):
@@ -17,8 +18,20 @@ def boybands_index(request):
 
 def boybands_detail(request, boyband_id):
     boyband = Boyband.objects.get(id=boyband_id)
-    context = {'boyband': boyband}
+    song_form = SongForm()
+    context = {
+        'boyband': boyband, 
+        'song_form': song_form
+        }
     return render(request, 'boybands/detail.html', context)
+
+def add_song(request, boyband_id):
+    form = SongForm(request.POST)
+    if form.is_valid():
+        new_song = form.save(commit=False)
+        new_song.boyband_id = boyband_id
+        new_song.save()
+    return redirect('detail', boyband_id=boyband_id)
 
 class BoybandCreate(CreateView):
     model = Boyband
