@@ -4,8 +4,8 @@
 <h1>Boy Band List</h1>
 
 {% for boyband in boybands %}
-  <div class="card">
-    <a href="{% url 'detail' boyband.id %}">
+  <div class="card teal-text text-accent-4">
+    <a href="{% url 'detail' boyband.id %}" style="text-decoration: none; color:inherit;">
     <div class="card-content">
       <span class="card-title">{{ boyband.name }}</span>
       <p>Decade: {{ boyband.decade }}</p>

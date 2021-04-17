@@ -6,15 +6,15 @@
 <div class="row">
   <div class="col s6">
     <div class="card">
-      <div class="card-content">
+      <div class="card-content teal-text text-accent-4">
         <span class="card-title">{{ boyband.name }}</span>
         <p>Decade: {{ boyband.decade }}</p>
         <p># Record Sold: {{ boyband.albums_sold }}</p>
         <p># of Members: {{ boyband.no_of_members }}</p>
       </div>
       <div class="card-action">
-        <a href="{% url 'boybands_update' boyband.id %}">Edit</a>
-        <a href="{% url 'boybands_delete' boyband.id %}">Delete</a>
+        <a href="{% url 'boybands_update' boyband.id %}" class="teal-text text-darken-4">Edit</a>
+        <a href="{% url 'boybands_delete' boyband.id %}" class="teal-text text-darken-4">Delete</a>
       </div>
     </div>
   </div>
