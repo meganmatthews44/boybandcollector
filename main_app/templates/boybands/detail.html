@@ -10,6 +10,10 @@
     <p># Records Sold: {{ boyband.albums_sold }}</p>
     <p># of Members: {{ boyband.no_of_members }}</p>
   </div>
+  <div class="card-action">
+    <a href="{% url 'boybands_update' boyband.id %}">Edit</a>
+    <a href="{% url 'boybands_delete' boyband.id %}">Delete</a>
+  </div>
 </div>
 
 {% endblock %}

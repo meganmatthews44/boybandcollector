@@ -5,14 +5,14 @@
 
 {% for boyband in boybands %}
   <div class="card">
-    <a href="/{ url 'detail' boyband.id}">
+    <a href="{% url 'detail' boyband.id %}">
     <div class="card-content">
       <span class="card-title">{{ boyband.name }}</span>
       <p>Decade: {{ boyband.decade }}</p>
       <p># Records Sold: {{ boyband.albums_sold }}</p>
         <p># of Members: {{ boyband.no_of_members }}</p>
     </div>
-  </a>
+    </a>
   </div>
 {% endfor %}
 

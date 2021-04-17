@@ -1,5 +1,6 @@
 from django.shortcuts import render
 from django.http import HttpResponse
+from django.views.generic.edit import CreateView, UpdateView, DeleteView
 from .models import Boyband
 # Create your views here.
 
@@ -11,8 +12,22 @@ def about(request):
 
 def boybands_index(request):
     boybands = Boyband.objects.all()
-    return render(request, 'boybands/index.html', {'boybands': boybands})
+    context = {'boybands': boybands}
+    return render(request, 'boybands/index.html', context)
 
 def boybands_detail(request, boyband_id):
     boyband = Boyband.objects.get(id=boyband_id)
-    return render(request, 'boybands/detail.html', {'boyband': boyband})
+    context = {'boyband': boyband}
+    return render(request, 'boybands/detail.html', context)
+
+class BoybandCreate(CreateView):
+    model = Boyband
+    fields = '__all__'
+
+class BoybandUpdate(UpdateView):
+    model = Boyband
+    fields = ['decade', 'albums_sold', 'no_of_members']
+
+class BoybandDelete(DeleteView):
+    model = Boyband
+    success_url = '/boybands/'
