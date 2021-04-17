@@ -12,3 +12,7 @@ def about(request):
 def boybands_index(request):
     boybands = Boyband.objects.all()
     return render(request, 'boybands/index.html', {'boybands': boybands})
+
+def boybands_detail(request, boyband_id):
+    boyband = Boyband.objects.get(id=boyband_id)
+    return render(request, 'boybands/detail.html', {'boyband': boyband})
