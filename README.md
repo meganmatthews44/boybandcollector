@@ -1,1 +1,2 @@
 # boybandcollector
+# boybandcollector-django-app
