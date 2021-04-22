@@ -10,4 +10,13 @@ urlpatterns = [
     path('boybands/<int:pk>/update/', views.BoybandUpdate.as_view(), name='boybands_update'),
     path('boybands/<int:pk>/delete/', views.BoybandDelete.as_view(), name='boybands_delete'),
     path('boybands/<int:boyband_id>/add_song/', views.add_song, name="add_song"),
+
+    path('awards/', views.awards_index, name='all_awards'),
+    path('awards/create/', views.AwardCreate.as_view(), name='create_award'),
+    path('awards/<int:pk>/update/', views.Update_Award.as_view(), name='update_award'),
+    path('awards/<int:pk>/delete/', views.Delete_Award.as_view(), name='delete_award'),
+
+    path('boybands/<int:boyband_id>/assoc_award/<int:award_id>/', views.assoc_award, name='assoc_award'),
+    path('boybands/<int:boyband_id>/remove_award/<int:award_id>/', views.remove_award, name='remove_award'),
+    path('boybands/<int:boyband_id>/add_photo/', views.add_photo, name='add_photo'),
 ]
