@@ -1,6 +1,9 @@
 from django.db import models
 from django.urls import reverse
 
+# Import the User
+from django.contrib.auth.models import User
+
 # Create your models here.
 
 RATINGS = (
@@ -24,6 +27,7 @@ class Boyband(models.Model):
     albums_sold = models.TextField(max_length=100)
     no_of_members = models.IntegerField()
     awards = models.ManyToManyField(Award)
+    user = models.ForeignKey(User, on_delete=models.CASCADE)
 
     def __str__(self):
         return self.name

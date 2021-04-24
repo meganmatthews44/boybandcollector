@@ -19,4 +19,6 @@ urlpatterns = [
     path('boybands/<int:boyband_id>/assoc_award/<int:award_id>/', views.assoc_award, name='assoc_award'),
     path('boybands/<int:boyband_id>/remove_award/<int:award_id>/', views.remove_award, name='remove_award'),
     path('boybands/<int:boyband_id>/add_photo/', views.add_photo, name='add_photo'),
+
+    path('accounts/signup/', views.signup, name='signup'),
 ]
